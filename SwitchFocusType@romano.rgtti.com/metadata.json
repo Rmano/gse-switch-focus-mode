@@ -1,0 +1,5 @@
+{"shell-version": ["3.10"], 
+	"uuid": "SwitchFocusType@romano.rgtti.com", 
+	"name": "Switch Focus Type", 
+	"description": "Toggle between focus-follow-mouse and click-to-focus mode"
+}
