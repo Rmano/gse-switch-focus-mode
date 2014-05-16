@@ -19,6 +19,8 @@ Click on the icon to change from FFM (_F_ icon) to CTF (_C_ icon). Each click to
 Works on gnome-shell 3.10, but probably also in other version. 
 Just try to add the version to `metadata.json` and tell me if it works for you.
 
+![Screencast](https://raw.githubusercontent.com/Rmano/gse-switch-focus-mode/master/screencast.gif)
+
 ### Install 
 
 Just copy/link the directory `SwitchFocusType@romano.rgtti.com` to your 
