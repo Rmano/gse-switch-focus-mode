@@ -11,7 +11,7 @@ let text, button, icon_f, icon_c;
 
 var focus;
 const FFM=0;
-const CTF=0;
+const CTF=1;
 
 function _set_FFM() {
 	Util.spawn(['gsettings', 'set', 'org.gnome.desktop.wm.preferences', 'focus-mode', 'sloppy']);
