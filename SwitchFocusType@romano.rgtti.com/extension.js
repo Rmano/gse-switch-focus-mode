@@ -69,10 +69,10 @@ function _switch() {
 function init() {
 	button = new St.Bin({ style_class: 'panel-button',
 		reactive: true,
-	       can_focus: true,
-	       x_fill: true,
-	       y_fill: false,
-	       track_hover: true });
+	       	can_focus: true,
+	       	x_fill: true,
+	      	y_fill: false,
+	        track_hover: true });
 	Gtk.IconTheme.get_default().append_search_path(Meta.dir.get_child('icons').get_path());
 	icon_f = new St.Icon({ icon_name: 'fmode',
 		style_class: 'system-status-icon' });
@@ -82,8 +82,13 @@ function init() {
 }
 
 function enable() {
-	// start with FFM 
-	_set_FFM();
+	// start with the current mode --- sync icon and internal state.
+	what=wm_prefs.get_string('focus-mode');
+	if (what == 'click') {
+		_set_CTF();
+	} else { // sloppy or mouse
+		_set_FFM();
+	}
 	button.connect('button-press-event', _switch);
 	Main.panel._rightBox.insert_child_at_index(button, 0);
 }
