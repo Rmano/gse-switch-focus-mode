@@ -1,3 +1,10 @@
+// SwitchFocusMode extension (c) 2014 Romano Giannetti <romano.giannetti@gmail.com>
+// License: GPLv2+, see http://www.gnu.org/licenses/gpl-2.0.txt
+//
+// Configuration: choose the kind of FFM you like, be "sloppy" or "mouse"
+const FFM_VARIANT='sloppy';
+
+// End configuration 
 const St = imports.gi.St;
 const Main = imports.ui.main;
 const Tweener = imports.ui.tweener;
@@ -6,21 +13,24 @@ const Gdk = imports.gi.Gdk;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Meta = ExtensionUtils.getCurrentExtension();
 const Util = imports.misc.util;
+const Gio = imports.gi.Gio;
 
-let text, button, icon_f, icon_c;
+let text, button, icon_f, icon_c, wm_prefs;
 
 var focus;
 const FFM=0;
 const CTF=1;
 
 function _set_FFM() {
+	focus = FFM;
 	button.set_child(icon_f);
-	Util.spawn(['gsettings', 'set', 'org.gnome.desktop.wm.preferences', 'focus-mode', 'sloppy']);
+	wm_prefs.set_string('focus-mode', FFM_VARIANT);
 }
 
 function _set_CTF() {
+	focus = CTF;
 	button.set_child(icon_c);
-	Util.spawn(['gsettings', 'set', 'org.gnome.desktop.wm.preferences', 'focus-mode', 'click']);
+	wm_prefs.set_string('focus-mode', 'click');
 }
 
 
@@ -49,10 +59,8 @@ function _showMsg(what) {
 function _switch() {
 	if (focus == FFM) {
 		_showMsg("Setting Click-to-focus");
-		focus = CTF;
 		_set_CTF();
 	} else {
-		focus = FFM;
 		_showMsg("Setting Focus-follow-mouse");
 		_set_FFM();
 	}
@@ -70,11 +78,11 @@ function init() {
 		style_class: 'system-status-icon' });
 	icon_c = new St.Icon({ icon_name: 'cmode',
 		style_class: 'system-status-icon' });
+	wm_prefs=new Gio.Settings({schema: 'org.gnome.desktop.wm.preferences'});
 }
 
 function enable() {
 	// start with FFM 
-	focus = FFM;
 	_set_FFM();
 	button.connect('button-press-event', _switch);
 	Main.panel._rightBox.insert_child_at_index(button, 0);
