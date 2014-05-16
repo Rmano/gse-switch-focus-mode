@@ -38,6 +38,12 @@ to
 
     const FFM_VARIANT='mouse';
 
+To change other options (like for example auto-raise behavior and similar)
+open `dconf-editor`  (install it if you need to) and navigate to the schema 
+`org.gnome.desktop.wm.preferences` --- you will find all the other 
+options there; this extension will touch only the `focus-mode` key and
+leave alone all the others parameters.
+
 ### Known issues
 
 * Should be configurable to choose between "sloppy" and "mouse" mode, 
