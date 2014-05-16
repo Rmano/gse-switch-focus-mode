@@ -4,5 +4,5 @@
 	"description": "Toggle between focus-follow-mouse and click-to-focus mode",
 	"url": "https://github.com/Rmano/gse-switch-focus-mode",
 	"original-authors": "Romano Giannetti <romano.giannetti@gmail.com>",
-	"version": 2
+	"version": 3
 }
