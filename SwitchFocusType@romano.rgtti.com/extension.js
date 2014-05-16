@@ -9,7 +9,9 @@ const Util = imports.misc.util;
 
 let text, button, icon_f, icon_c;
 
-var toggle;
+var focus;
+const FFM=0;
+const CTF=0;
 
 function _set_FFM() {
 	Util.spawn(['gsettings', 'set', 'org.gnome.desktop.wm.preferences', 'focus-mode', 'sloppy']);
@@ -20,14 +22,14 @@ function _set_CTF() {
 }
 
 
-function _hideHello() {
+function _hideMsg() {
     Main.uiGroup.remove_actor(text);
     text = null;
 }
 
-function _showHello(what) {
+function _showMsg(what) {
     if (!text) {
-        text = new St.Label({ style_class: 'helloworld-label', text: what });
+        text = new St.Label({ style_class: 'msg-label', text: what });
         Main.uiGroup.add_actor(text);
     }
 
@@ -39,19 +41,19 @@ function _showHello(what) {
                      { opacity: 0,
                        time: 2,
                        transition: 'easeOutQuad',
-                       onComplete: _hideHello });
+                       onComplete: _hideMsg });
 }
 
 function _switch() {
-	if (toggle == 0) {
-		toggle = 1;
-		_showHello("Setting Click-to-focus");
+	if (focus == FFM) {
+		focus = CTF;
+		_showMsg("Setting Click-to-focus");
 		button.set_child(icon_c);
 		_set_CTF();
 	}
 	else {
-		toggle = 0;
-		_showHello("Setting Focus-follow-mouse");
+		focus = FFM;
+		_showMsg("Setting Focus-follow-mouse");
     		button.set_child(icon_f);
 		_set_FFM();
 	}
@@ -70,7 +72,7 @@ function init() {
     icon_c = new St.Icon({ icon_name: 'cmode',
                              style_class: 'system-status-icon' });
     button.set_child(icon_f);
-    toggle = 0;
+    focus = FFM;
     _set_FFM();
     button.connect('button-press-event', _switch);
 }
