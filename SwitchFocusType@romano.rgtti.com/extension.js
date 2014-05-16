@@ -39,7 +39,7 @@ function _showMsg(what) {
                       Math.floor(monitor.height / 2 - text.height / 2));
     Tweener.addTween(text,
                      { opacity: 0,
-                       time: 2,
+                       time: 3,
                        transition: 'easeOutQuad',
                        onComplete: _hideMsg });
 }
