@@ -35,8 +35,10 @@ function _set_CTF() {
 
 
 function _hideMsg() {
-	Main.uiGroup.remove_actor(text);
-	text = null;
+	if (text) {
+		Main.uiGroup.remove_actor(text);
+		text = null;
+	}
 }
 
 function _showMsg(what) {
@@ -57,6 +59,7 @@ function _showMsg(what) {
 }
 
 function _switch() {
+	_hideMsg();
 	if (focus == FFM) {
 		_showMsg("Setting Click-to-focus");
 		_set_CTF();
