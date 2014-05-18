@@ -82,6 +82,7 @@ function init() {
 	icon_c = new St.Icon({ icon_name: 'cmode',
 		style_class: 'system-status-icon' });
 	wm_prefs=new Gio.Settings({schema: 'org.gnome.desktop.wm.preferences'});
+	button.connect('button-press-event', _switch);
 }
 
 function enable() {
@@ -92,7 +93,6 @@ function enable() {
 	} else { // sloppy or mouse
 		_set_FFM();
 	}
-	button.connect('button-press-event', _switch);
 	Main.panel._rightBox.insert_child_at_index(button, 0);
 }
 
