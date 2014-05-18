@@ -55,6 +55,15 @@ function _switch() {
 	}
 }
 
+function _sync() { 
+	what=wm_prefs.get_string('focus-mode');
+	if (what == 'click') {
+		button.set_child(icon_c);
+	} else { // sloppy or mouse
+		button.set_child(icon_f);
+	}
+}
+
 function init() {
 	button = new St.Bin({ style_class: 'panel-button',
 		reactive: true,
@@ -73,12 +82,7 @@ function init() {
 
 function enable() {
 	// start with the current mode --- sync icon 
-	what=wm_prefs.get_string('focus-mode');
-	if (what == 'click') {
-		button.set_child(icon_c);
-	} else { // sloppy or mouse
-		button.set_child(icon_f);
-	}
+	_sync();
 	Main.panel._rightBox.insert_child_at_index(button, 0);
 }
 
