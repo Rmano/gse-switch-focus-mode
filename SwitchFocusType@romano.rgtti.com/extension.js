@@ -17,23 +17,6 @@ const Gio = imports.gi.Gio;
 
 let text, button, icon_f, icon_c, wm_prefs;
 
-var focus;
-const FFM=0;
-const CTF=1;
-
-function _set_FFM() {
-	focus = FFM;
-	button.set_child(icon_f);
-	wm_prefs.set_string('focus-mode', FFM_VARIANT);
-}
-
-function _set_CTF() {
-	focus = CTF;
-	button.set_child(icon_c);
-	wm_prefs.set_string('focus-mode', 'click');
-}
-
-
 function _hideMsg() {
 	if (text) {
 		Main.uiGroup.remove_actor(text);
@@ -42,6 +25,7 @@ function _hideMsg() {
 }
 
 function _showMsg(what) {
+	_hideMsg(); // in case it's still linging there 
 	if (!text) {
 		text = new St.Label({ style_class: 'msg-label', text: what });
 		Main.uiGroup.add_actor(text);
@@ -59,13 +43,15 @@ function _showMsg(what) {
 }
 
 function _switch() {
-	_hideMsg();
-	if (focus == FFM) {
-		_showMsg("Setting Click-to-focus");
-		_set_CTF();
-	} else {
+	let what=wm_prefs.get_string('focus-mode');
+	if (what == 'click') {
 		_showMsg("Setting Focus-follow-mouse");
-		_set_FFM();
+		button.set_child(icon_f);
+		wm_prefs.set_string('focus-mode', FFM_VARIANT);
+	} else { // sloppy or mouse
+		_showMsg("Setting Click-to-focus");
+		button.set_child(icon_c);
+		wm_prefs.set_string('focus-mode', 'click');
 	}
 }
 
@@ -85,12 +71,12 @@ function init() {
 }
 
 function enable() {
-	// start with the current mode --- sync icon and internal state.
+	// start with the current mode --- sync icon 
 	what=wm_prefs.get_string('focus-mode');
 	if (what == 'click') {
-		_set_CTF();
+		button.set_child(icon_c);
 	} else { // sloppy or mouse
-		_set_FFM();
+		button.set_child(icon_f);
 	}
 	button.connect('button-press-event', _switch);
 	Main.panel._rightBox.insert_child_at_index(button, 0);
