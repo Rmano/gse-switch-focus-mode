@@ -56,7 +56,7 @@ function _switch() {
 }
 
 function _sync() { 
-	what=wm_prefs.get_string('focus-mode');
+	let what=wm_prefs.get_string('focus-mode');
 	if (what == 'click') {
 		button.set_child(icon_c);
 	} else { // sloppy or mouse
