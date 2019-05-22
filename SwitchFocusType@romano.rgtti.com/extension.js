@@ -8,11 +8,8 @@ const FFM_VARIANT='sloppy';
 const St = imports.gi.St;
 const Main = imports.ui.main;
 const Tweener = imports.ui.tweener;
-const Gtk = imports.gi.Gtk;
-const Gdk = imports.gi.Gdk;
 const ExtensionUtils = imports.misc.extensionUtils;
-const Meta = ExtensionUtils.getCurrentExtension();
-const Util = imports.misc.util;
+const Me = ExtensionUtils.getCurrentExtension();
 const Gio = imports.gi.Gio;
 
 let text, button, icon_f, icon_c, wm_prefs;
@@ -71,11 +68,10 @@ function init() {
 	       	x_fill: true,
 	      	y_fill: false,
 	        track_hover: true });
-	Gtk.IconTheme.get_default().append_search_path(Meta.dir.get_child('icons').get_path());
-	icon_f = new St.Icon({ icon_name: 'fmode',
-		style_class: 'system-status-icon' });
-	icon_c = new St.Icon({ icon_name: 'cmode',
-		style_class: 'system-status-icon' });
+	icon_f = new St.Icon({ style_class: 'system-status-icon' });
+	icon_f.gicon = Gio.icon_new_for_string(Me.path + '/icons/fmode.svg');
+	icon_c = new St.Icon({ style_class: 'system-status-icon' });
+	icon_c.gicon = Gio.icon_new_for_string(Me.path + '/icons/cmode.svg');
 	wm_prefs=new Gio.Settings({schema: 'org.gnome.desktop.wm.preferences'});
 	button.connect('button-press-event', _switch);
 }
