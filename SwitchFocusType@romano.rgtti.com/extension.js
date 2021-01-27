@@ -61,8 +61,6 @@ function init() {
 	button = new St.Bin({ style_class: 'panel-button',
 		reactive: true,
 	       	can_focus: true,
-	       	x_fill: true,
-	      	y_fill: false,
 	        track_hover: true });
 	icon_f = new St.Icon({ style_class: 'system-status-icon' });
 	icon_f.gicon = Gio.icon_new_for_string(Me.path + '/icons/fmode.svg');
