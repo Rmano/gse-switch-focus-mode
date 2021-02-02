@@ -5,9 +5,9 @@
 const FFM_VARIANT='sloppy';
 
 // End configuration 
+const Clutter = imports.gi.Clutter;
 const St = imports.gi.St;
 const Main = imports.ui.main;
-const Tweener = imports.ui.tweener;
 const ExtensionUtils = imports.misc.extensionUtils;
 const Me = ExtensionUtils.getCurrentExtension();
 const Gio = imports.gi.Gio;
@@ -32,11 +32,7 @@ function _showMsg(what) {
 	let monitor = Main.layoutManager.primaryMonitor;
 	text.set_position(Math.floor(monitor.width / 2 - text.width / 2),
 			Math.floor(monitor.height / 2 - text.height / 2));
-	Tweener.addTween(text,
-			{ opacity: 0,
-				time: 3,
-		transition: 'easeOutQuad',
-		onComplete: _hideMsg });
+        text.ease_property('opacity', 0, { duration: 3000, mode: Clutter.AnimationMode.EASE_OUT_QUAD, onComplete: _hideMsg })
 }
 
 function _switch() {
@@ -65,8 +61,6 @@ function init() {
 	button = new St.Bin({ style_class: 'panel-button',
 		reactive: true,
 	       	can_focus: true,
-	       	x_fill: true,
-	      	y_fill: false,
 	        track_hover: true });
 	icon_f = new St.Icon({ style_class: 'system-status-icon' });
 	icon_f.gicon = Gio.icon_new_for_string(Me.path + '/icons/fmode.svg');
