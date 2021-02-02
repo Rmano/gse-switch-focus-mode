@@ -4,6 +4,8 @@ By Romano Giannetti <romano@rgtti.com> , <romano.giannetti@gmail.com>
 
 Icons based on LockKeys extension by Kazimieras Vaina et al. at https://extensions.gnome.org/extension/36/lock-keys/
 
+(Notice: you are on the `legacy` branch!)
+
 ### Rationale
 
 This extension is oriented to user that likes to have their focus 
