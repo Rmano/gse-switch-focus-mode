@@ -4,7 +4,7 @@
 // Configuration: choose the kind of FFM you like, be "sloppy" or "mouse"
 const FFM_VARIANT='sloppy';
 
-// End configuration 
+// End configuration
 const Clutter = imports.gi.Clutter;
 const St = imports.gi.St;
 const Main = imports.ui.main;
@@ -22,7 +22,7 @@ function _hideMsg() {
 }
 
 function _showMsg(what) {
-	_hideMsg(); // in case it's still linging there 
+	_hideMsg(); // in case it's still linging there
 	if (!text) {
 		text = new St.Label({ style_class: 'msg-label', text: what });
 		Main.uiGroup.add_actor(text);
@@ -48,7 +48,7 @@ function _switch() {
 	}
 }
 
-function _sync() { 
+function _sync() {
 	let what=wm_prefs.get_string('focus-mode');
 	if (what == 'click') {
 		button.set_child(icon_c);
@@ -58,6 +58,9 @@ function _sync() {
 }
 
 function init() {
+}
+
+function enable() {
 	button = new St.Bin({ style_class: 'panel-button',
 		reactive: true,
 	       	can_focus: true,
@@ -68,14 +71,17 @@ function init() {
 	icon_c.gicon = Gio.icon_new_for_string(Me.path + '/icons/cmode.svg');
 	wm_prefs=new Gio.Settings({schema: 'org.gnome.desktop.wm.preferences'});
 	button.connect('button-press-event', _switch);
-}
-
-function enable() {
-	// start with the current mode --- sync icon 
+	// start with the current mode --- sync icon
 	_sync();
 	Main.panel._rightBox.insert_child_at_index(button, 0);
 }
 
 function disable() {
 	Main.panel._rightBox.remove_child(button);
+        wm_prefs = null;
+        icon_c = null;
+        icon_f = null;
+        text = null;
+        button = null;
 }
+
