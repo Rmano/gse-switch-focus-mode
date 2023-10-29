@@ -3,14 +3,9 @@
   "name": "Switch Focus Type",
   "original-authors": "Romano Giannetti <romano.giannetti@gmail.com>",
   "shell-version": [
-    "3.38",
-    "40",
-    "41",
-    "42",
-    "43",
-    "44"
+    "45"
   ],
   "url": "https://github.com/Rmano/gse-switch-focus-mode",
   "uuid": "SwitchFocusType@romano.rgtti.com",
-  "version": 11
+  "version": 12
 }

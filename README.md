@@ -4,6 +4,8 @@ By Romano Giannetti <romano@rgtti.com> , <romano.giannetti@gmail.com>
 
 Icons based on LockKeys extension by Kazimieras Vaina et al. at https://extensions.gnome.org/extension/36/lock-keys/
 
+You are on the `master` branch (Gnome Shell version ≥ 45, still ***not working***).
+
 ### Rationale
 
 This extension is oriented to user that likes to have their focus
@@ -18,9 +20,9 @@ after popping up because the window which is the menu is unable to get focus).
 Click on the icon to change from FFM (_F_ icon) to CTF (_C_ icon).
 Each click toggle the status.
 
-There are to main branches in the repository: the **legacy** one, for Gnome Shells upt to 3.36, and the **master** branch, for newer ones (authored by @F-i-f, tested by them on 3.38 for now).
+There are three main branches in the repository: the **legacy** one, for Gnome Shells up to 3.36, the **legacy2** branch, for shells from 3.38 to 44 (authored by @F-i-f), and **master** for newer versions.
 
-Works on gnome-shell 3.10 to 3.36, (`legacy` branch), and 3.38 to 44 (`master` branch).
+Works on gnome-shell 3.10 to 3.36, (`legacy` branch), and 3.38 to 44 (`legacy2` branch). **Currently it does not work for Gnome Shell 45 and newer.**
 
 If you want to test it on another version,
 just try to add the version to `metadata.json` and tell me if it works for you.
