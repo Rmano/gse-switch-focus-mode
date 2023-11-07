@@ -5,12 +5,21 @@
 const FFM_VARIANT='sloppy';
 
 // End configuration
-const Clutter = imports.gi.Clutter;
-const St = imports.gi.St;
-const Main = imports.ui.main;
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
-const Gio = imports.gi.Gio;
+//const Clutter = imports.gi.Clutter;
+import Clutter from 'gi://Clutter';
+// const St = imports.gi.St;
+import St from 'gi://St';
+//const Gio = imports.gi.Gio;
+import Gio from 'gi://Gio';
+// const Main = imports.ui.main;
+import * as Main from 'resource:///org/gnome/shell/ui/main.js';
+
+// const ExtensionUtils = imports.misc.extensionUtils;
+// const Me = ExtensionUtils.getCurrentExtension();
+// FIXME no lo entiendo
+// import * as Me from './extension.js'
+
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
 let text, button, icon_f, icon_c, wm_prefs;
 
@@ -60,28 +69,34 @@ function _sync() {
 function init() {
 }
 
-function enable() {
+export default class SwitchFocusType extends Extension {
+    constructor(metadata) {
+	    super(metadata);
+    }
+    enable() {
 	button = new St.Bin({ style_class: 'panel-button',
 		reactive: true,
 	       	can_focus: true,
 	        track_hover: true });
-	icon_f = new St.Icon({ style_class: 'system-status-icon' });
-	icon_f.gicon = Gio.icon_new_for_string(Me.path + '/icons/fmode.svg');
-	icon_c = new St.Icon({ style_class: 'system-status-icon' });
-	icon_c.gicon = Gio.icon_new_for_string(Me.path + '/icons/cmode.svg');
+	let dir;
+	// this._settings = this.getSettings();
+	// dir = this.dir;
+	icon_f = new St.Icon({ style_class: 'system-status-icon', icon_name: 'face-laugh-symbolic' });
+	// icon_f.gicon = Gio.icon_new_for_string(dir + '/icons/fmode.svg');
+	icon_c = new St.Icon({ style_class: 'system-status-icon' , icon_name: 'face-sad-symbolic'});
+	// icon_c.gicon = Gio.icon_new_for_string(dir + '/icons/cmode.svg');
 	wm_prefs=new Gio.Settings({schema: 'org.gnome.desktop.wm.preferences'});
 	button.connect('button-press-event', _switch);
 	// start with the current mode --- sync icon
 	_sync();
 	Main.panel._rightBox.insert_child_at_index(button, 0);
-}
-
-function disable() {
+    }
+    disable() {
 	Main.panel._rightBox.remove_child(button);
         wm_prefs = null;
         icon_c = null;
         icon_f = null;
         text = null;
         button = null;
+    }
 }
-
