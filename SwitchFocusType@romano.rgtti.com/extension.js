@@ -5,53 +5,23 @@
 const FFM_VARIANT='sloppy';
 
 // End configuration
-//const Clutter = imports.gi.Clutter;
 import Clutter from 'gi://Clutter';
-// const St = imports.gi.St;
 import St from 'gi://St';
-//const Gio = imports.gi.Gio;
 import Gio from 'gi://Gio';
-// const Main = imports.ui.main;
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
-
-// const ExtensionUtils = imports.misc.extensionUtils;
-// const Me = ExtensionUtils.getCurrentExtension();
-// seems not useful at all
-// import * as Me from './extension.js'
 
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-let text, button, icon_f, icon_c, wm_prefs;
-
-function _hideMsg() {
-	if (text) {
-		Main.uiGroup.remove_actor(text);
-		text = null;
-	}
-}
-
-function _showMsg(what) {
-	_hideMsg(); // in case it's still linging there
-	if (!text) {
-		text = new St.Label({ style_class: 'msg-label', text: what });
-		Main.uiGroup.add_actor(text);
-	}
-
-	text.opacity = 255;
-	let monitor = Main.layoutManager.primaryMonitor;
-	text.set_position(Math.floor(monitor.width / 2 - text.width / 2),
-			Math.floor(monitor.height / 2 - text.height / 2));
-        text.ease_property('opacity', 0, { duration: 3000, mode: Clutter.AnimationMode.EASE_OUT_QUAD, onComplete: _hideMsg })
-}
+let button, icon_f, icon_c, wm_prefs;
 
 function _switch() {
 	let what=wm_prefs.get_string('focus-mode');
 	if (what == 'click') {
-		_showMsg("Setting Focus-follow-mouse");
+		Main.notify("Switch Focus Mode", "Setting Focus-follow-mouse");
 		button.set_child(icon_f);
 		wm_prefs.set_string('focus-mode', FFM_VARIANT);
 	} else { // sloppy or mouse
-		_showMsg("Setting Click-to-focus");
+		Main.notify("Switch Focus Mode", "Setting Click-to-focus");
 		button.set_child(icon_c);
 		wm_prefs.set_string('focus-mode', 'click');
 	}
@@ -78,6 +48,7 @@ export default class SwitchFocusType extends Extension {
 	       	can_focus: true,
 	        track_hover: true });
 	let dir;
+	//this._settings = this.getSettings();
 	dir = this._metadata.path;
 	icon_f = new St.Icon({ style_class: 'system-status-icon'});
 	icon_f.gicon = Gio.icon_new_for_string(dir + '/icons/fmode.svg');
@@ -94,7 +65,6 @@ export default class SwitchFocusType extends Extension {
         wm_prefs = null;
         icon_c = null;
         icon_f = null;
-        text = null;
         button = null;
     }
 }
