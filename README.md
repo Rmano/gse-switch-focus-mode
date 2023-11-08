@@ -4,7 +4,7 @@ By Romano Giannetti <romano@rgtti.com> , <romano.giannetti@gmail.com>
 
 Icons based on LockKeys extension by Kazimieras Vaina et al. at https://extensions.gnome.org/extension/36/lock-keys/
 
-You are on the `master` branch (Gnome Shell version ≥ 45, still ***not working***).
+You are on the `master` branch (Gnome Shell version ≥ 45, still not reviewed).
 
 ### Rationale
 
