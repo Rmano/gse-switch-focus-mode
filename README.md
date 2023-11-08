@@ -22,7 +22,7 @@ Each click toggle the status.
 
 There are three main branches in the repository: the **legacy** one, for Gnome Shells up to 3.36, the **legacy2** branch, for shells from 3.38 to 44 (authored by @F-i-f), and **master** for newer versions.
 
-Works on gnome-shell 3.10 to 3.36, (`legacy` branch), and 3.38 to 44 (`legacy2` branch). **Currently it does not work for Gnome Shell 45 and newer.**
+Works on gnome-shell 3.10 to 3.36, (`legacy` branch), and 3.38 to 44 (`legacy2` branch), and on 45 (`master` branch).
 
 If you want to test it on another version,
 just try to add the version to `metadata.json` and tell me if it works for you.
