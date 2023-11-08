@@ -16,7 +16,7 @@ import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 
 // const ExtensionUtils = imports.misc.extensionUtils;
 // const Me = ExtensionUtils.getCurrentExtension();
-// FIXME no lo entiendo
+// seems not useful at all
 // import * as Me from './extension.js'
 
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
@@ -66,25 +66,23 @@ function _sync() {
 	}
 }
 
-function init() {
-}
 
 export default class SwitchFocusType extends Extension {
     constructor(metadata) {
-	    super(metadata);
-    }
+	super(metadata);
+	    this._metadata = metadata;
+	}
     enable() {
 	button = new St.Bin({ style_class: 'panel-button',
 		reactive: true,
 	       	can_focus: true,
 	        track_hover: true });
 	let dir;
-	// this._settings = this.getSettings();
-	// dir = this.dir;
-	icon_f = new St.Icon({ style_class: 'system-status-icon', icon_name: 'face-laugh-symbolic' });
-	// icon_f.gicon = Gio.icon_new_for_string(dir + '/icons/fmode.svg');
-	icon_c = new St.Icon({ style_class: 'system-status-icon' , icon_name: 'face-sad-symbolic'});
-	// icon_c.gicon = Gio.icon_new_for_string(dir + '/icons/cmode.svg');
+	dir = this._metadata.path;
+	icon_f = new St.Icon({ style_class: 'system-status-icon'});
+	icon_f.gicon = Gio.icon_new_for_string(dir + '/icons/fmode.svg');
+	icon_c = new St.Icon({ style_class: 'system-status-icon'});
+	icon_c.gicon = Gio.icon_new_for_string(dir + '/icons/cmode.svg');
 	wm_prefs=new Gio.Settings({schema: 'org.gnome.desktop.wm.preferences'});
 	button.connect('button-press-event', _switch);
 	// start with the current mode --- sync icon
@@ -100,3 +98,4 @@ export default class SwitchFocusType extends Extension {
         button = null;
     }
 }
+
