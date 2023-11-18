@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+        <schema id="org.gnome.shell.extensions.switchfocustype" path="/org/gnome/shell/extensions/switchfocustype/">
+                <key name="show-notifications" type="b">
+                        <default>true</default>
+                        <summary>Show a notification when toggling</summary>
+                        <description>Normally we show a notification each time
+                        the user changes focus mode. It is a bit slow,
+                        so maybe you prefer not to enable it.
+                </description>
+        </key>
+        <key name="use-sloppy" type="b">
+                <default>true</default>
+                <summary>Use "sloppy" focus mode instead of "mouse"</summary>
+                <description>When follow-mouse focus is set to "mouse",
+                the focus is strictly on the windows under the mouse.
+                In "sloppy" mode, the focus is on the last window
+                that was under the mouse (default, recommended).
+        </description>
+</key>
+  </schema>
+</schemalist>
