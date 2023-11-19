@@ -59,22 +59,22 @@ export default class SwitchFocusType extends Extension {
 	        track_hover: true });
 	let dir;
 	dir = this._metadata.path;
-        // get settings
-	this._settings = this.getSettings();
 	icon_f = new St.Icon({ style_class: 'system-status-icon'});
 	icon_f.gicon = Gio.icon_new_for_string(dir + '/icons/fmode.svg');
 	icon_c = new St.Icon({ style_class: 'system-status-icon'});
 	icon_c.gicon = Gio.icon_new_for_string(dir + '/icons/cmode.svg');
 	wm_prefs=new Gio.Settings({schema: 'org.gnome.desktop.wm.preferences'});
+        // get settings
         my_prefs= this.getSettings();
-        button.connect('button-press-event', _switch);
+        this._connectionId = button.connect('button-press-event', _switch);
 	// start with the current mode --- sync icon
 	_sync();
 	Main.panel._rightBox.insert_child_at_index(button, 0);
     }
     disable() {
+        button.disconnect(this._connectionId);
 	Main.panel._rightBox.remove_child(button);
-        button.destroy();
+        button?.destroy();
         button = null;
         wm_prefs = null;
         my_prefs = null;
