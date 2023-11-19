@@ -36,7 +36,6 @@ just try to add the version to `metadata.json` and tell me if it works for you.
 
 ![Screencast](https://raw.githubusercontent.com/Rmano/gse-switch-focus-mode/master/screencast.gif)
 
-Notice that the screencast is for an old version.
 
 ### Install
 
