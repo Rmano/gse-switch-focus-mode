@@ -8,5 +8,5 @@
   "url": "https://github.com/Rmano/gse-switch-focus-mode",
   "uuid": "SwitchFocusType@romano.rgtti.com",
   "settings-schema": "org.gnome.shell.extensions.switchfocustype",
-  "version": 14
+  "version": 15
 }

@@ -27,13 +27,15 @@ function _switch() {
             Main.notify("Switch Focus Mode",
                 "Setting Focus-Follow-Mouse(" + _ffm_variant(p_sloppy) + ")");
         }
-        button.set_child(icon_f);
+        // no need: taking care by the changed signal!
+        // button.set_child(icon_f);
         wm_prefs.set_string('focus-mode', _ffm_variant(p_sloppy));
     } else { // sloppy or mouse
         if (pNotify) {
             Main.notify("Switch Focus Mode", "Setting Click-to-focus");
         }
-        button.set_child(icon_c);
+        // no need: taking care by the changed signal!
+        // button.set_child(icon_c);
         wm_prefs.set_string('focus-mode', 'click');
     }
 }
@@ -67,12 +69,14 @@ export default class SwitchFocusType extends Extension {
         // get settings
         my_prefs= this.getSettings();
         this._connectionId = button.connect('button-press-event', _switch);
+        this._setconnectionId = wm_prefs.connect('changed::focus-mode', (s, k) => { _sync() });
         // start with the current mode --- sync icon
         _sync();
         Main.panel._rightBox.insert_child_at_index(button, 0);
     }
     disable() {
         button.disconnect(this._connectionId);
+        wm_prefs.disconnect(this._setconnectionId);
         Main.panel._rightBox.remove_child(button);
         button?.destroy();
         button = null;
