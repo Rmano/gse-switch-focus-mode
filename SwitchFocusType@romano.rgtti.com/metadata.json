@@ -3,10 +3,10 @@
   "name": "Switch Focus Type",
   "original-authors": "Romano Giannetti <romano.giannetti@gmail.com>",
   "shell-version": [
-    "45", "46", "47"
+    "45", "46", "47", "48"
   ],
   "url": "https://github.com/Rmano/gse-switch-focus-mode",
   "uuid": "SwitchFocusType@romano.rgtti.com",
   "settings-schema": "org.gnome.shell.extensions.switchfocustype",
-  "version": 17
+  "version": 18
 }
