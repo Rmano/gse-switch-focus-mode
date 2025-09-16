@@ -27,7 +27,7 @@ Each click toggle the status.
 
 There are three main branches in the repository: the **legacy** one, for Gnome Shells up to 3.36, the **legacy2** branch, for shells from 3.38 to 44 (authored by @F-i-f), and **master** for newer versions.
 
-Works on gnome-shell 3.10 to 3.36, (`legacy` branch), and 3.38 to 44 (`legacy2` branch), and on 45 (`master` branch).
+Works on gnome-shell 3.10 to 3.36, (`legacy` branch), and 3.38 to 44 (`legacy2` branch), and on 45 onward (`master` branch; see the releases to check which is the newest version implemented).
 
 The options for activating or not the notifications or for choosing between `sloppy` and `mouse` mode are available only from gnome 45 (version 13).
 
