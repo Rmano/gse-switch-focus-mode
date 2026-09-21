@@ -41,12 +41,19 @@ export default class SwitchFocusType extends Extension {
         this._focusModeId = this._wmSettings.connect(
             'changed::focus-mode', () => this._syncIcon());
 
+        // If the preferred FFM variant is changed while FFM is active, apply
+        // it immediately. When click-to-focus is active we merely remember the
+        // preference for the next toggle.
+        this._ffmPreferenceId = this._settings.connect(
+            'changed::use-sloppy', () => this._applyPreferredFfmMode());
+
         this._syncIcon();
         Main.panel.addToStatusArea(this.uuid, this._indicator);
     }
 
     disable() {
         this._wmSettings.disconnect(this._focusModeId);
+        this._settings.disconnect(this._ffmPreferenceId);
 
         // Destroy the child explicitly; destroying the indicator also releases
         // its actor-owned ClickGesture and the gesture's signal handler.
@@ -56,6 +63,7 @@ export default class SwitchFocusType extends Extension {
         this._indicator = null;
         this._icon = null;
         this._focusModeId = null;
+        this._ffmPreferenceId = null;
         this._wmSettings = null;
         this._settings = null;
     }
@@ -64,6 +72,20 @@ export default class SwitchFocusType extends Extension {
         return this._settings.get_boolean('use-sloppy')
             ? FOCUS_SLOPPY
             : FOCUS_MOUSE;
+    }
+
+    _applyPreferredFfmMode() {
+        const currentMode = this._wmSettings.get_string('focus-mode');
+
+        // Auto-raise and its delay are native GNOME settings. They remain
+        // stored while click-to-focus is active and GNOME applies them only
+        // when the focus mode is "mouse" or "sloppy".
+        if (currentMode === FOCUS_CLICK)
+            return;
+
+        const preferredMode = this._preferredFfmMode();
+        if (currentMode !== preferredMode)
+            this._wmSettings.set_string('focus-mode', preferredMode);
     }
 
     _toggle() {
