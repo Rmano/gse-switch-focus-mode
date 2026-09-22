@@ -37,7 +37,7 @@ The options for activating or not the notifications or for choosing between `slo
 If you want to test it on another version,
 just try to add the version to `metadata.json` and tell me if it works for you.
 
-![Screencast](https://raw.githubusercontent.com/Rmano/gse-switch-focus-mode/master/screencast.gif)
+![Screencast](./screencast.gif)
 
 
 ### Install
