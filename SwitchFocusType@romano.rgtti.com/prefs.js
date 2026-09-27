@@ -2,7 +2,7 @@
 // License: GPLv2+, see http://www.gnu.org/licenses/gpl-2.0.txt
 //
 // AI usage in this version: searching APIs, cleaning lifetime rules, helping conversion
-// from depreacted/old API. Code re-written, understood ;-) and tested by the (human,
+// from deprecated/old API. Code re-written, understood ;-) and tested by the (human,
 // until proof of the contrary) author, in spite of confused ideas from openAI about how to
 // keep the local use_sloppy and the global focus-mode in sync ;-).
 //
