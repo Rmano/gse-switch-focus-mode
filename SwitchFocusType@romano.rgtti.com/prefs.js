@@ -6,8 +6,12 @@
 // until proof of the contrary) author, in spite of confused ideas from openAI about how to
 // keep the local use_sloppy and the global focus-mode in sync ;-).
 //
+// do not put version informartion here
+// they are specified in the parent module (Thanks @JustPerfection)
+// https://gitlab.gnome.org/GNOME/gnome-shell/-/blob/main/js/dbusServices/extensions/extensionPrefsDialog.js?ref_type=heads#L4
+//
 import Gio from 'gi://Gio';
-import Gtk from 'gi://Gtk?version=4.0';
+import Gtk from 'gi://Gtk';
 import Adw from 'gi://Adw';
 
 import {ExtensionPreferences} from 'resource:///org/gnome/Shell/Extensions/js/extensions/prefs.js';
