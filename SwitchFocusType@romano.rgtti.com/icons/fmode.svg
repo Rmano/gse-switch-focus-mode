@@ -2,19 +2,20 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg7384"
    sodipodi:docname="fmode.svg"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
-   height="16"
-   width="15.999999">
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   height="17.204"
+   width="17.204"
+   viewBox="0 0 16.128751 16.128751"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <metadata
      id="metadata90">
     <rdf:RDF>
@@ -28,13 +29,13 @@
     </rdf:RDF>
   </metadata>
   <sodipodi:namedview
-     inkscape:cy="3.2522048"
+     inkscape:cy="3.1819807"
      pagecolor="#666666"
      borderopacity="1"
      showborder="false"
      inkscape:bbox-paths="false"
      guidetolerance="10"
-     inkscape:window-width="1310"
+     inkscape:window-width="1194"
      showguides="true"
      inkscape:snap-bbox="true"
      inkscape:pageshadow="2"
@@ -45,27 +46,33 @@
      id="namedview88"
      showgrid="false"
      inkscape:window-maximized="0"
-     inkscape:window-x="288"
+     inkscape:window-x="26"
      inkscape:snap-global="true"
-     inkscape:window-y="27"
+     inkscape:window-y="23"
      gridtolerance="10"
-     inkscape:window-height="833"
+     inkscape:window-height="1217"
      inkscape:snap-to-guides="true"
      inkscape:current-layer="layer11"
      inkscape:zoom="11.313708"
-     inkscape:cx="11.127751"
+     inkscape:cx="11.136932"
      inkscape:snap-grids="true"
      inkscape:pageopacity="1"
-     inkscape:bbox-nodes="false">
+     inkscape:bbox-nodes="false"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
     <inkscape:grid
-       spacingx="1px"
-       spacingy="1px"
+       spacingx="1"
+       spacingy="1"
        id="grid4866"
        empspacing="2"
        enabled="true"
        type="xygrid"
        snapvisiblegridlinesonly="true"
-       visible="true" />
+       visible="true"
+       originx="0"
+       originy="0"
+       units="px" />
   </sodipodi:namedview>
   <title
      id="title9167">Gnome Symbolic Icon Theme</title>
@@ -91,28 +98,18 @@
        transform="matrix(1.1402701,0,0,1.1389577,81.766824,-74.564061)"
        id="g4934">
       <path
-         style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;color:#bebebe;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
-         d="M 3.09375,-0.9375 C 1.3478382,-0.9375 0,0.54517095 0,2.28125 l 0,9.5 c 0,1.736079 1.3478382,3.25 3.09375,3.25 l 9.78125,0 c 1.745912,0 3.125,-1.513921 3.125,-3.25 l 0,-9.5 C 16,0.54517095 14.620912,-0.9375 12.875,-0.9375 z M 3.9999966,1.732278e-6 c 4.0167998,0.291550387722 6.0289474,0.152369757722 8.0000004,0 0.859003,-0.066401232278 2,1.064164067722 2,1.999999967722 l 0,8.0000003 c 0,0.757874 -0.846226,1.520408 -1.593747,1.624998 -3.2306111,0.451995 -5.4245849,0.501249 -8.75,0 C 2.909887,11.512499 1.9999966,10.757876 1.9999966,10.000002 l 0,-8.0000003 c 0,-0.9358359 1.140689,-2.06236929 2,-1.999999967722 z"
+         style="color:#bebebe;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:'Bitstream Vera Sans';-inkscape-font-specification:'Bitstream Vera Sans';text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#bebebe;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"
+         d="M 3.09375,-0.9375 C 1.3478382,-0.9375 0,0.54517095 0,2.28125 v 9.5 c 0,1.736079 1.3478382,3.25 3.09375,3.25 H 12.875 c 1.745912,0 3.125,-1.513921 3.125,-3.25 v -9.5 C 16,0.54517095 14.620912,-0.9375 12.875,-0.9375 Z M 3.9999966,1.732278e-6 c 4.0167998,0.291550387722 6.0289474,0.152369757722 8.0000004,0 0.859003,-0.066401232278 2,1.064164067722 2,1.999999967722 v 8.0000003 c 0,0.757874 -0.846226,1.520408 -1.593747,1.624998 -3.2306111,0.451995 -5.4245849,0.501249 -8.75,0 C 2.909887,11.512499 1.9999966,10.757876 1.9999966,10.000002 V 2.0000017 c 0,-0.9358359 1.140689,-2.06236929 2,-1.999999967722 z"
          transform="matrix(0.8769852,0,0,0.87799573,122.98242,400.83386)"
          id="rect11749-5-9-2-7"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="ssssssssssssssssss" />
     </g>
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Sans"
-       x="226.41942"
-       y="392.40381"
-       id="text2994"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2996"
-         x="226.41942"
-         y="392.40381">F</tspan><tspan
-         sodipodi:role="line"
-         x="226.41942"
-         y="407.40381"
-         id="tspan2998" /></text>
+    <path
+       d="m 227.06981,392.40381 v -8.73047 h 6.07031 v 1.54687 h -4.26562 v 2.14454 h 3.97265 v 1.5 h -3.97265 v 3.53906 z"
+       id="text2"
+       style="font-weight:bold;font-size:12px;line-height:1.25;font-family:'Adwaita Sans';-inkscape-font-specification:'Adwaita Sans Bold';letter-spacing:0px;word-spacing:0px;fill:#ffffff"
+       aria-label="F" />
   </g>
   <g
      inkscape:label="actions"
